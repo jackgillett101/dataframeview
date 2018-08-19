@@ -58,7 +58,7 @@ class AggregateTree:
                 this_branch = AggregateTree(pivot_tree[key], column_types, key)
 
                 self.branches[key] = this_branch
-                underlying_aggregates.append(this_branch.aggregateValue)
+                underlying_aggregates.append(this_branch.aggregate_value)
 
             combined = pd.concat(underlying_aggregates)
 
