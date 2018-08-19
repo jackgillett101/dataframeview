@@ -9,22 +9,19 @@ from dataframeaggregatetree import AggregateTree
 # generates additional abstract 'pivot' rows for each pivot category, whose values are the
 # aggregate of the underlying values), and finally perform sorts on the values within each pivot
 class DataFrameViewConfig:
-    # Columns is the subset of columns we wish to show in the viewer
-    columns = []
-
-    # Sorts is an array of tuples of ( Column Name, Bool ) with Bool == True for ascending
-    sorts = []
-
-    # vPivots is an array of column names to pivot on
-    vPivots = []
-
-    # Filters is an array of Filter-class objects, as defined above, that filter specific columns
-    filters = []
 
     def __init__(self, columns=[], sorts=[], v_pivots=[], filters=[]):
+
+        # Columns is the subset of columns we wish to show in the viewer
         self.columns = columns
+
+        # Sorts is an array of tuples of ( Column Name, Bool ) with Bool == True for ascending
         self.sorts = sorts
+
+        # v_pivots is an array of column names to pivot on
         self.v_pivots = v_pivots
+
+        # Filters is an array of Filter-class objects, as defined above, that filter specific columns
         self.filters = filters
 
     def get_visible_columns(self):

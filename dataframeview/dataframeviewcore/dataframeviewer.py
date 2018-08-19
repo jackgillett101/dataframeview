@@ -2,8 +2,8 @@ import dataframeviewconfig
 import dataframeview
 
 
-# This is the entry point into the rest of the functionality. Create a DataFrameView for a dataframe and everything
-# else will kick off!!
+# This is the entry point into the rest of the functionality. Create a DataFrameViewer for a dataframe and
+# everything else will kick off!!
 class DataFrameViewer:
     def __init__(self, df, columns=[], sorts=[], v_pivots=[], filters=[]):
         # TODO: check if this view and this df are compatible (eg. do the pivots, views etc. exist in the df)

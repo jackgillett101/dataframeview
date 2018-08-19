@@ -6,7 +6,9 @@ from dataframeviewfilterstab import CreateDataViewFiltersTab
 import dataframeview
 
 
-# From a list of column names, datatypes and data iterator, create a treeview
+# From a DataFrameViewConfig object, create a view controller window, which allows users to view and alter tha current
+# set of filters, visible columns, pivots etc. via GUI manipulations. When they click 'done', this window closes and
+# the TreeViewWindow re-opens, with the new view applied
 class DataFrameViewControllerWindow:
     def __init__(self, df, view=None):
         self.df = df

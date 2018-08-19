@@ -2,7 +2,7 @@ import Tkinter
 import ttk
 
 
-# This tab lives inside the view controller, and determines which columns should be included in the view
+# This tab lives inside the view controller, and determines which columns should be pivoted on in the viewer
 class CreateDataViewPivotsTab:
     def __init__(self, tab, df, view=None):
         # Get column names (strings) as a list

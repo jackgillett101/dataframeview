@@ -3,9 +3,10 @@ import ttk
 import dataframeview
 
 
-# DfFilterFrame is a GUI line representation of a DfFilter, used in the View Controller's Filters tab. If a filter
-# object is passed in, that is populated as default, otherwise a default entry is used. This also has a method to
-# convert all of the GUI rows back into DfFilter objects when the View Controller is closed
+# DataFrameViewFilterGUI is a GUI line representation of a DataFrameViewFilter, used in the View Controller's Filters
+# tab. If a filter object is passed in, its properties populate the GUI row. Otherwise a default (empty) entry is used.
+# This also has a method to convert all of the GUI rows back into DataFrameViewFilter objects when the View Controller
+# is closed
 class DataFrameViewFilterGUI:
     def __init__(self, parent_tab, df, filters_frame, df_filter=None):
 

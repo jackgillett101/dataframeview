@@ -2,7 +2,7 @@ import ttk
 import dataframeviewfiltergui as dfvf_gui
 
 
-# This tab lives inside the view controller, and determines which columns should be included in the view
+# This tab lives inside the view controller, and allows a set of filters to be defined to filter out some rows of data
 class CreateDataViewFiltersTab:
     def __init__(self, tab, df, view=None):
         # TODO: This class needs to be improved significantly to support nested and/or logic in filter construction
