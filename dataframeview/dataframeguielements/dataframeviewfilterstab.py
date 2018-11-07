@@ -1,5 +1,5 @@
-import ttk
-import dataframeviewfiltergui as dfvf_gui
+import tkinter.ttk as ttk
+from dataframeview.dataframeguielements.dataframeviewfiltergui import DataFrameViewFilterGUI
 
 
 # This tab lives inside the view controller, and allows a set of filters to be defined to filter out some rows of data
@@ -31,14 +31,14 @@ class CreateDataViewFiltersTab:
 
     # To add a filter, create new FilterGui object without passing a filter to it, it will do the rest. Keep a reference
     def add_filter(self):
-        filter_gui = dfvf_gui.DataFrameViewFilterGUI(self, self.df, self.filters_frame)
+        filter_gui = DataFrameViewFilterGUI(self, self.df, self.filters_frame)
         self.filter_reference_list.append(filter_gui)
 
     # To remove a filter, forget the reference to it, and call the GUI object's destruct method
     def remove_filter(self, df_filter):
         self.filter_reference_list.remove(df_filter)
 
-    # Create a Tkinter window with boxes for filters, columns and pivots
+    # Create a tkinter window with boxes for filters, columns and pivots
     def create_tkinter_window(self, tab):
         # Use frames to put the list boxes inside, which helps sizing an alignment
         outer_frame = ttk.Frame(tab)
@@ -63,5 +63,5 @@ class CreateDataViewFiltersTab:
     # Take any filters defined in the view and convert them into GUI rows
     def populate_filters(self):
         for data_filter in self.filter_list:
-            filter_gui = dfvf_gui.DataFrameViewFilterGUI(self, self.df, self.filters_frame, df_filter=data_filter)
+            filter_gui = DataFrameViewFilterGUI(self, self.df, self.filters_frame, df_filter=data_filter)
             self.filter_reference_list.append(filter_gui)

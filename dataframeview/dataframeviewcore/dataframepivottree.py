@@ -1,10 +1,10 @@
 import pandas as pd
 from collections import defaultdict
-from dataframeaggregatetree import AggregateTree
+from dataframeview.dataframeviewcore.dataframeaggregatetree import AggregateTree
 
 
 def tree():
-    return defaultdict(Tree)
+    return defaultdict(tree)
 
 
 class PivotTree:
@@ -37,7 +37,7 @@ class PivotTree:
                 if len(link) == 0:
                     link[pivot_value] = tree()
 
-            data_tree_key = map(lambda (x, y): y, pivot_values)
+            data_tree_key = list(map(lambda x: x[1], pivot_values))
             if len(data_tree_key) > 1:
                 data_tree_key = tuple(data_tree_key)
             else:

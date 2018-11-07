@@ -1,6 +1,6 @@
-import Tkinter
-import ttk
-import dataframeview
+import tkinter
+import tkinter.ttk as ttk
+from dataframeview.dataframeviewfilters.dataframeviewfilters import DataFrameViewFilter
 
 
 # DataFrameViewFilterGUI is a GUI line representation of a DataFrameViewFilter, used in the View Controller's Filters
@@ -24,8 +24,8 @@ class DataFrameViewFilterGUI:
         new_filter.pack(side="left")
 
         # Option Menu for the fields to filter on and filter type, with default set by the filter provided (if one is)
-        filter_column = Tkinter.StringVar()
-        filter_type = Tkinter.StringVar()
+        filter_column = tkinter.StringVar()
+        filter_type = tkinter.StringVar()
         if df_filter is None:
             filter_column.set(self.columns[1])
             filter_type.set(self.filter_types[1])
@@ -63,4 +63,4 @@ class DataFrameViewFilterGUI:
         type = self.filter_type.get()
         value = self.filter_value.get()
 
-        return dataframeview.DataFrameViewFilter(column, type, value, pretty=True)
+        return DataFrameViewFilter(column, type, value, pretty=True)

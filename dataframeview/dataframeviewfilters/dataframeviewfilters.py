@@ -4,7 +4,7 @@ class DataFrameViewFilter:
     # Create some class static maps linking pretty to functional descriptors
     pretty_filter_name = {"greater_than": "Greater Than", "less_than": "Less Than", "equals": "Equals",
                              "in": "In", "notnull": "Not Null"}
-    inverse_pretty_map = {v: k for k, v in pretty_filter_name.iteritems()}
+    inverse_pretty_map = {v: k for k, v in pretty_filter_name.items()}
 
     def __init__(self, column_name, filter_type, value, pretty=False):
         # TODO: check the type of the filter, and sanity-check the values passed in

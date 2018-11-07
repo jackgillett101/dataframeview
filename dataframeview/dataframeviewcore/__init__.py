@@ -1,1 +1,1 @@
-from dataframeviewer import DataFrameViewer
+from dataframeview.dataframeviewcore.dataframepivottree import PivotTree

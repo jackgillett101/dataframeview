@@ -1,5 +1,5 @@
-import Tkinter
-import ttk
+import tkinter
+import tkinter.ttk as ttk
 
 
 # This tab lives inside the view controller, and determines which columns should be included in the view
@@ -15,7 +15,7 @@ class CreateDataViewColumnsTab:
             excluded_columns_list = []
         else:
             included_columns_list = view.get_visible_columns()
-            excluded_columns_list = filter(lambda x: x not in included_columns_list, columns)
+            excluded_columns_list = list(filter(lambda x: x not in included_columns_list, columns))
 
         self.included_columns_list = included_columns_list
         self.excluded_columns_list = excluded_columns_list
@@ -33,8 +33,8 @@ class CreateDataViewColumnsTab:
         excluded_column_frame.pack(side="top", fill="y")
         ttk.Label(excluded_column_frame, text="Excluded Columns").pack(side="top", fill="y")
 
-        included_columns = Tkinter.Listbox(included_column_frame, width=30)
-        excluded_columns = Tkinter.Listbox(excluded_column_frame, width=30)
+        included_columns = tkinter.Listbox(included_column_frame, width=30)
+        excluded_columns = tkinter.Listbox(excluded_column_frame, width=30)
         included_columns.pack(side="left", fill="y")
         excluded_columns.pack(side="left", fill="y")
 

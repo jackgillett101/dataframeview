@@ -67,7 +67,7 @@ class AggregateTree:
     def sort(self, sort_column, ascending):
         if not self.leaf:
             self.branches = OrderedDict(sorted(self.branches.items(),
-                                               key=lambda (key, value): value.aggregate_value[sort_column][0],
+                                               key=lambda key_value, value: value.aggregate_value[sort_column][0],
                                                reverse=not ascending))
 
             for (key, branch) in self.branches.iteritems():

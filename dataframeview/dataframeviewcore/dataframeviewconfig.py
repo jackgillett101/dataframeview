@@ -1,5 +1,5 @@
-from dataframepivottree import PivotTree
-from dataframeaggregatetree import AggregateTree
+from dataframeview.dataframeviewcore.dataframepivottree import PivotTree
+from dataframeview.dataframeviewcore.dataframeaggregatetree import AggregateTree
 
 
 # A DataFrameViewConfig is a set of sorts, v_pivots and filters that map the underlying data in a df into
@@ -81,7 +81,7 @@ class DataFrameViewConfig:
     def coalesce_data_tree(self, aggregate_tree, parent='root'):
         data = [{'parent': parent, 'name': id(aggregate_tree), 'value': aggregate_tree.aggregate_value}]
 
-        for (key, branch) in aggregate_tree.branches.iteritems():
+        for (key, branch) in aggregate_tree.branches.items():
             data += self.coalesce_data_tree(branch, id(aggregate_tree))
 
         if aggregate_tree.is_leaf():

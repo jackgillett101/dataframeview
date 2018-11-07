@@ -1,5 +1,5 @@
-import Tkinter
-import ttk
+import tkinter
+import tkinter.ttk as ttk
 
 
 # This tab lives inside the view controller, and determines which columns should be pivoted on in the viewer
@@ -16,7 +16,7 @@ class CreateDataViewPivotsTab:
             included_pivots_list = []
         else:
             included_pivots_list = view.get_pivot_columns()
-            excluded_pivots_list = filter(lambda x: x not in included_pivots_list, columns)
+            excluded_pivots_list = list(filter(lambda x: x not in included_pivots_list, columns))
 
         self.excluded_pivots_list = excluded_pivots_list
         self.included_pivots_list = included_pivots_list
@@ -34,8 +34,8 @@ class CreateDataViewPivotsTab:
         included_pivots_frame.pack(side="top", fill="y")
         ttk.Label(included_pivots_frame, text="VPivot Columns").pack(side="top", fill="y")
 
-        excluded_pivots = Tkinter.Listbox(excluded_pivots_frame, width=30)
-        included_pivots = Tkinter.Listbox(included_pivots_frame, width=30)
+        excluded_pivots = tkinter.Listbox(excluded_pivots_frame, width=30)
+        included_pivots = tkinter.Listbox(included_pivots_frame, width=30)
         excluded_pivots.pack(side="left", fill="y")
         included_pivots.pack(side="left", fill="y")
 

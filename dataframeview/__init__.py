@@ -1,3 +1,3 @@
-from dataframeviewcore import DataFrameViewer
-from dataframeviewfilters import DataFrameViewFilter
-from dataframeguielements import TreeViewWindow
+from dataframeview.dataframeviewer import DataFrameViewer
+from dataframeview.dataframeviewfilters import DataFrameViewFilter
+from dataframeview.dataframeguielements import TreeViewWindow

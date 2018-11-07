@@ -1,4 +1,4 @@
-import dataframeviewconfig
+from dataframeview.dataframeviewcore.dataframeviewconfig import DataFrameViewConfig
 import dataframeview
 
 
@@ -14,5 +14,5 @@ class DataFrameViewer:
         if len(columns) == 0:
             columns = list(df.columns.values)
 
-        view = dataframeviewconfig.DataFrameViewConfig(columns, sorts, v_pivots, filters)
+        view = DataFrameViewConfig(columns, sorts, v_pivots, filters)
         tvw = dataframeview.TreeViewWindow(df, view)

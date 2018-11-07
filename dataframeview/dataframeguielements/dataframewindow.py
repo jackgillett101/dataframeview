@@ -1,6 +1,6 @@
-import Tkinter
-import ttk
-import dataframeviewcontrollerwindow
+import tkinter
+import tkinter.ttk as ttk
+from dataframeview.dataframeguielements.dataframeviewcontrollerwindow import DataFrameViewControllerWindow
 
 
 # From a list of column names, data types and data iterator, create a tree view
@@ -37,7 +37,7 @@ class TreeViewWindow:
         # If specified in the view, we instead use the subset (and ordering) of columns specified there
         view_columns = view.get_visible_columns()
         if len(view_columns) > 0:
-            view_columns = filter(lambda x: x in columns, view_columns)  # Sanity check!
+            view_columns = list(filter(lambda x: x in columns, view_columns))  # Sanity check!
             view_column_types = map(lambda x: column_data_types[x], view_columns)
 
             columns = view_columns
@@ -139,9 +139,9 @@ class TreeViewWindow:
 
         return expanded_nodes
 
-    # Create a Tkinter window and a Treeview, pass links back for data population
+    # Create a tkinter window and a Treeview, pass links back for data population
     def create_tkinter_window(self):
-        win = Tkinter.Tk()
+        win = tkinter.Tk()
         win.minsize(width=600, height=300)
         win.maxsize(width=1400, height=800)
         win.title('df Viewer')
@@ -152,16 +152,16 @@ class TreeViewWindow:
         # Create a TreeView and some scrollbars for it spanning the x and y axes
         tree = ttk.Treeview(win, padding=3)
 
-        vsb = ttk.Scrollbar(win, orient=Tkinter.VERTICAL, command=tree.yview)
-        vsb.pack(side='right', fill='y')
-        hsb = ttk.Scrollbar(win, orient=Tkinter.HORIZONTAL, command=tree.xview)
-        hsb.pack(side='bottom', fill='y')
+        vsb = ttk.Scrollbar(win, orient=tkinter.VERTICAL, command=tree.yview)
+        #vsb.pack(side='right', fill='y')
+        hsb = ttk.Scrollbar(win, orient=tkinter.HORIZONTAL, command=tree.xview)
+        #hsb.pack(side='bottom', fill='y')
 
         tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
 
-        tree.grid(row=1, column=0, sticky=Tkinter.NSEW)
-        vsb.grid(row=1, column=1, sticky=Tkinter.NS)
-        hsb.grid(row=2, column=0, sticky=Tkinter.EW)
+        tree.grid(row=1, column=0, sticky=tkinter.NSEW)
+        vsb.grid(row=1, column=1, sticky=tkinter.NS)
+        hsb.grid(row=2, column=0, sticky=tkinter.EW)
 
         win.rowconfigure(1, weight=1)
         win.columnconfigure(0, weight=1)
@@ -169,10 +169,10 @@ class TreeViewWindow:
         return win, tree
 
     def create_menu_options(self, win):
-        menu = Tkinter.Menu(win)
+        menu = tkinter.Menu(win)
         win.config(menu=menu)
 
-        view_menu = Tkinter.Menu(menu, tearoff=0)
+        view_menu = tkinter.Menu(menu, tearoff=0)
         view_menu.add_command(label="Open View Controller", command=self.show_view_controller)
         view_menu.add_separator()
         view_menu.add_command(label="Load View", command=self.to_do)
@@ -183,7 +183,7 @@ class TreeViewWindow:
 
     def show_view_controller(self):
         self.win.destroy()
-        dataframeviewcontrollerwindow.DataFrameViewControllerWindow(self.df, view=self.view)
+        DataFrameViewControllerWindow(self.df, view=self.view)
 
     def to_do(self):
-        print "Not Yet Implemented!"
+        print("Not Yet Implemented!")
