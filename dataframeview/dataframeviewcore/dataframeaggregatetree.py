@@ -20,6 +20,7 @@ def create_sum_row(df, name, column_types):
         # Default aggregation (unique values only)
         else:
             first_flag = True
+            initial_value = None
             for value in column:
                 if first_flag:
                     initial_value = value
@@ -33,6 +34,14 @@ def create_sum_row(df, name, column_types):
     row_frame = row_frame.set_index('row_tag')
 
     return row_frame
+
+
+# In Python 3, lists with NoneTypes don't sort happily. This utility function treats them as empty strings instead
+def safe_sort(string):
+    if string is None:
+        return ""
+    else:
+        return string
 
 
 # A class to represent the ultimate tabular form of the table, post pivots and filters
@@ -67,10 +76,10 @@ class AggregateTree:
     def sort(self, sort_column, ascending):
         if not self.leaf:
             self.branches = OrderedDict(sorted(self.branches.items(),
-                                               key=lambda key_value, value: value.aggregate_value[sort_column][0],
+                                               key=lambda value: safe_sort(value[1].aggregate_value[sort_column][0]),
                                                reverse=not ascending))
 
-            for (key, branch) in self.branches.iteritems():
+            for (key, branch) in self.branches.items():
                 branch.sort(sort_column, ascending)
 
         if self.leaf:

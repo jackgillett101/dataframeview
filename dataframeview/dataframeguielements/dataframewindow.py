@@ -1,5 +1,6 @@
 import tkinter
 import tkinter.ttk as ttk
+import math
 from dataframeview.dataframeguielements.dataframeviewcontrollerwindow import DataFrameViewControllerWindow
 
 
@@ -45,7 +46,7 @@ class TreeViewWindow:
 
         # Choose a sensible column width - optimise later!
         number_of_columns = len(columns)
-        column_width = max(min(300, 1000 / number_of_columns), 100)
+        column_width = int(math.floor((max(min(300, 1000 / number_of_columns), 100))))
 
         # Add a temporary count column
         df_with_count = df.assign(Count=1)
@@ -75,7 +76,7 @@ class TreeViewWindow:
             dataframe = data["value"]
 
             for (label, row) in dataframe.iterrows():
-                cell_data = tuple([row[column] if row[column] != None else "" for column in columns])
+                cell_data = tuple([row[column] if row[column] is not None else "" for column in columns])
 
                 # TODO: Keep track of openness by hashing values - potential conflicts
                 row_data = (row['Count'],) + tuple(cell_data)
