@@ -1,5 +1,5 @@
-from .dataframeviewcore import DataFrameViewConfig
-from .dataframeguielements import TreeViewWindow
+from dataframeviewcore import DataFrameViewConfig
+from dataframeguielements import TreeViewWindow
 
 
 # This is the entry point into the rest of the functionality. Create a DataFrameViewer for a dataframe and
