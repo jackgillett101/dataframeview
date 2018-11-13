@@ -1,5 +1,5 @@
-from dataframeview.dataframeviewcore.dataframepivottree import PivotTree
-from dataframeview.dataframeviewcore.dataframeaggregatetree import AggregateTree
+from .dataframepivottree import PivotTree
+from .dataframeaggregatetree import AggregateTree
 
 
 # A DataFrameViewConfig is a set of sorts, v_pivots and filters that map the underlying data in a df into

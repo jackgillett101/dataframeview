@@ -1,5 +1,5 @@
-from dataframeview.dataframeviewcore.dataframeviewconfig import DataFrameViewConfig
-import dataframeview
+from .dataframeviewcore import DataFrameViewConfig
+from .dataframeguielements import TreeViewWindow
 
 
 # This is the entry point into the rest of the functionality. Create a DataFrameViewer for a dataframe and
@@ -15,4 +15,4 @@ class DataFrameViewer:
             columns = list(df.columns.values)
 
         view = DataFrameViewConfig(columns, sorts, v_pivots, filters)
-        tvw = dataframeview.TreeViewWindow(df, view)
+        tvw = TreeViewWindow(df, view)

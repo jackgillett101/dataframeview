@@ -1,6 +1,6 @@
 import pandas as pd
 from collections import defaultdict
-from dataframeview.dataframeviewcore.dataframeaggregatetree import AggregateTree
+from .dataframeaggregatetree import AggregateTree
 
 
 def tree():

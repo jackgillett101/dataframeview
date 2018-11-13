@@ -1,7 +1,7 @@
 import tkinter
 import tkinter.ttk as ttk
 import math
-from dataframeview.dataframeguielements.dataframeviewcontrollerwindow import DataFrameViewControllerWindow
+from .dataframeviewcontrollerwindow import DataFrameViewControllerWindow
 
 
 # From a list of column names, data types and data iterator, create a tree view

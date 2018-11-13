@@ -1,5 +1,5 @@
 import tkinter.ttk as ttk
-from dataframeview.dataframeguielements.dataframeviewfiltergui import DataFrameViewFilterGUI
+from .dataframeviewfiltergui import DataFrameViewFilterGUI
 
 
 # This tab lives inside the view controller, and allows a set of filters to be defined to filter out some rows of data

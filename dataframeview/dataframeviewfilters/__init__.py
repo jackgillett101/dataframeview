@@ -1,1 +1,1 @@
-from dataframeview.dataframeviewfilters.dataframeviewfilters import DataFrameViewFilter
+from .dataframeviewfilters import DataFrameViewFilter

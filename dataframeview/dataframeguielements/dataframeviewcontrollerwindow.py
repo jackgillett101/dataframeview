@@ -1,9 +1,10 @@
 import tkinter
 import tkinter.ttk as ttk
-from dataframeview.dataframeguielements.dataframeviewcolumnstab import CreateDataViewColumnsTab
-from dataframeview.dataframeguielements.dataframeviewpivotstab import CreateDataViewPivotsTab
-from dataframeview.dataframeguielements.dataframeviewfilterstab import CreateDataViewFiltersTab
-import dataframeview
+from .dataframeviewcolumnstab import CreateDataViewColumnsTab
+from .dataframeviewpivotstab import CreateDataViewPivotsTab
+from .dataframeviewfilterstab import CreateDataViewFiltersTab
+from dataframeview.dataframeguielements import *
+from ..dataframeviewcore.dataframeviewconfig import DataFrameViewConfig
 
 
 # From a DataFrameViewConfig object, create a view controller window, which allows users to view and alter tha current
@@ -35,7 +36,9 @@ class DataFrameViewControllerWindow:
 
         self.win.destroy()
 
-        dataframeview.DataFrameViewer(self.df, columns=columns, v_pivots=v_pivots, filters=filters)
+        view = DataFrameViewConfig(columns=columns, v_pivots=v_pivots, filters=filters)
+        dataframewindow.TreeViewWindow(self.df, view=view)
+        #DataFrameViewer(self.df, columns=columns, v_pivots=v_pivots, filters=filters)
 
     # Create a tkinter window with boxes for filters, columns and pivots
     def create_tkinter_window(self):

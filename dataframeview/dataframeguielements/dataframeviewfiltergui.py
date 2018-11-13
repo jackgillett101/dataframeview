@@ -1,6 +1,6 @@
 import tkinter
 import tkinter.ttk as ttk
-from dataframeview.dataframeviewfilters.dataframeviewfilters import DataFrameViewFilter
+from dataframeview.dataframeviewfilters import DataFrameViewFilter
 
 
 # DataFrameViewFilterGUI is a GUI line representation of a DataFrameViewFilter, used in the View Controller's Filters

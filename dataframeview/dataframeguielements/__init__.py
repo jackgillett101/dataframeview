@@ -1,1 +1,1 @@
-from dataframeview.dataframeguielements.dataframewindow import TreeViewWindow
+from .dataframewindow import TreeViewWindow
