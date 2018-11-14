@@ -1,6 +1,6 @@
 import tkinter
 import tkinter.ttk as ttk
-from dataframeview.dataframeviewfilters import DataFrameViewFilter
+#from dataframeview.dataframeviewfilters import DataFrameViewFilter
 
 
 # DataFrameViewFilterGUI is a GUI line representation of a DataFrameViewFilter, used in the View Controller's Filters
@@ -63,4 +63,5 @@ class DataFrameViewFilterGUI:
         type = self.filter_type.get()
         value = self.filter_value.get()
 
-        return DataFrameViewFilter(column, type, value, pretty=True)
+        return column, type, value
+        #return DataFrameViewFilter(column, type, value, pretty=True)

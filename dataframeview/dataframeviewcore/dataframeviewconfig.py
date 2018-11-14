@@ -10,7 +10,8 @@ from .dataframeaggregatetree import AggregateTree
 # aggregate of the underlying values), and finally perform sorts on the values within each pivot
 class DataFrameViewConfig:
 
-    def __init__(self, columns=[], sorts=[], v_pivots=[], filters=[]):
+    def __init__(self, df_viewer, columns=[], sorts=[], v_pivots=[], filters=[]):
+        self.df_viewer = df_viewer
 
         # Columns is the subset of columns we wish to show in the viewer
         self.columns = columns

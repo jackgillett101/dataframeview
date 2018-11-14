@@ -6,7 +6,8 @@ from .dataframeviewcontrollerwindow import DataFrameViewControllerWindow
 
 # From a list of column names, data types and data iterator, create a tree view
 class TreeViewWindow:
-    def __init__(self, df, view):
+    def __init__(self, df_viewer, df, view):
+        self.df_viewer = df_viewer
         self.df = df
         self.view = view
 
@@ -184,7 +185,7 @@ class TreeViewWindow:
 
     def show_view_controller(self):
         self.win.destroy()
-        DataFrameViewControllerWindow(self.df, view=self.view)
+        DataFrameViewControllerWindow(self.df_viewer, self.df, view=self.view)
 
     def to_do(self):
         print("Not Yet Implemented!")

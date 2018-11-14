@@ -3,15 +3,16 @@ import tkinter.ttk as ttk
 from .dataframeviewcolumnstab import CreateDataViewColumnsTab
 from .dataframeviewpivotstab import CreateDataViewPivotsTab
 from .dataframeviewfilterstab import CreateDataViewFiltersTab
-from dataframeview.dataframeguielements import *
-from ..dataframeviewcore.dataframeviewconfig import DataFrameViewConfig
+#from dataframeview.dataframeguielements import *
+#from ..dataframeviewcore.dataframeviewconfig import DataFrameViewConfig
 
 
 # From a DataFrameViewConfig object, create a view controller window, which allows users to view and alter tha current
 # set of filters, visible columns, pivots etc. via GUI manipulations. When they click 'done', this window closes and
 # the TreeViewWindow re-opens, with the new view applied
 class DataFrameViewControllerWindow:
-    def __init__(self, df, view=None):
+    def __init__(self, df_viewer, df, view=None):
+        self.df_viewer = df_viewer
         self.df = df
 
         (win, notebook, columns, pivots, filters, submit) = self.create_tkinter_window()
@@ -36,8 +37,7 @@ class DataFrameViewControllerWindow:
 
         self.win.destroy()
 
-        view = DataFrameViewConfig(columns=columns, v_pivots=v_pivots, filters=filters)
-        dataframewindow.TreeViewWindow(self.df, view=view)
+        self.df_viewer.setup_viewer(self.df, columns=columns, v_pivots=v_pivots, filters=filters)
         #DataFrameViewer(self.df, columns=columns, v_pivots=v_pivots, filters=filters)
 
     # Create a tkinter window with boxes for filters, columns and pivots
